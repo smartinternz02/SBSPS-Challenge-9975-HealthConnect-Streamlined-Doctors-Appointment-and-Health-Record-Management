@@ -14,6 +14,7 @@ const requireEmailVerification = async (req, res, next) => {
 
       // Get the userId from the decoded token
       const userId = decodedToken.userId;
+      req.userId = userId;
 
       // Retrieve the user from the database
       const user = await User.findById(userId);

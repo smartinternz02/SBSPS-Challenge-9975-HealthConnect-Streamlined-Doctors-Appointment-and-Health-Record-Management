@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const authMiddleware = require('../middleware/authMiddleware')
 const authController = require('../controllers/authController');
 
 // Register a new user
@@ -18,9 +19,9 @@ router.post('/forgot-password', authController.forgotPassword)
 router.post('/reset-Password', authController.resetPassword)
 
 //forgot password
-router.post('/update-Profile', authController.updateProfile)
+router.put('/update-Profile', authMiddleware.requireEmailVerification, authController.updateProfile)
 
 //forgot password
-router.post('/change-Password', authController.changePassword)
+router.put('/change-Password',authMiddleware.requireEmailVerification, authController.changePassword)
 
 module.exports = router;

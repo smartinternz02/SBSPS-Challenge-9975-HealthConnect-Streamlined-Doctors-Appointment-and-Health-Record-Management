@@ -27,7 +27,13 @@ const userSchema = new mongoose.Schema({
     // otpExpiration: {
     //     type: Date,
     //     default: null,
-    // }
+    // },
+    name:{
+        type: String,
+    },
+    contactInfo:{
+        type:String,
+    },
 });
 
 const User = mongoose.model('User',userSchema);
