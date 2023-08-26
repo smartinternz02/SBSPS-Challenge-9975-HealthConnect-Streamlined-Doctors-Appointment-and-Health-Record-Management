@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
+const appointmentRoutes = require('./routes/appointment');
 
 const app = express();
 
@@ -21,6 +22,7 @@ db.once('open', ()=>{
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/appointment', appointmentRoutes);
 
 const port = process.env.PORT || 3001;
 
